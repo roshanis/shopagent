@@ -4,8 +4,8 @@ run = "bash run.sh"
 channel = "stable-23_11"
 
 [deployment]
-build = ["sh", "-c", "pip install -r backend/requirements.txt && cd frontend && npm install && npm run build"]
-run = ["sh", "-c", "cd backend && python main.py & sleep 3 && cd ../frontend/dist && python -m http.server 3000"]
+build = ["bash", "build.sh"]
+run = ["bash", "start.sh"]
 
 [env]
 PYTHONPATH = "./backend"
