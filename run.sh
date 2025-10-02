@@ -5,6 +5,13 @@
 echo "🚀 Starting Agentic Shop Lab..."
 echo "========================================"
 
+# Get the absolute path of the script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "Working directory: $SCRIPT_DIR"
+echo ""
+
 # Check if OpenAI API key is set
 if [ -z "$OPENAI_API_KEY" ]; then
     echo "❌ ERROR: OPENAI_API_KEY environment variable not set!"
@@ -22,28 +29,28 @@ echo ""
 
 # Install Python dependencies
 echo "📦 Installing Python dependencies..."
-cd backend
+cd "$SCRIPT_DIR/backend"
 python3 -m pip install -r requirements.txt --quiet
-cd ..
+cd "$SCRIPT_DIR"
 
 # Install Node.js dependencies
 echo "📦 Installing Node.js dependencies..."
-cd frontend
+cd "$SCRIPT_DIR/frontend"
 npm install --silent
-cd ..
+cd "$SCRIPT_DIR"
 
 # Build frontend
 echo "🔨 Building frontend..."
-cd frontend
+cd "$SCRIPT_DIR/frontend"
 npm run build --silent
-cd ..
+cd "$SCRIPT_DIR"
 
 # Start backend in background
 echo "🔧 Starting backend server..."
-cd backend
+cd "$SCRIPT_DIR/backend"
 python3 main.py &
 BACKEND_PID=$!
-cd ..
+cd "$SCRIPT_DIR"
 
 # Wait a moment for backend to start
 sleep 3
@@ -71,5 +78,5 @@ echo "Press Ctrl+C to stop all servers"
 echo ""
 
 # Serve frontend (this will be the main process)
-cd frontend/dist
+cd "$SCRIPT_DIR/frontend/dist"
 python3 -m http.server 3000
