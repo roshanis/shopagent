@@ -129,9 +129,7 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({ result, onNe
               endAngle={-270}
             >
               <RadialBar
-                minAngle={15}
                 background
-                clockWise
                 dataKey="value"
                 cornerRadius={10}
               />
