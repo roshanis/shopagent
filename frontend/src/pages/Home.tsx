@@ -29,41 +29,49 @@ export const Home: React.FC = () => {
   const conversationSteps: ConversationStep[] = [
     {
       id: 'product_name',
-      question: 'What product would you like to evaluate?',
+      question: '🛍️ What product would you like to evaluate?',
       type: 'text',
-      placeholder: 'e.g., iPhone 15 Pro, Vitamin C Serum, Organic Coffee...',
-      required: true
-    },
-    {
-      id: 'product_category',
-      question: 'What category does this product belong to?',
-      type: 'select',
-      options: [
-        'Electronics', 'Skincare', 'Food & Beverages', 'Clothing',
-        'Home & Garden', 'Health & Wellness', 'Sports & Outdoors',
-        'Beauty', 'Books', 'Automotive', 'Other'
-      ],
+      placeholder: 'e.g., iPhone 15 Pro, Vitamin C Serum, Organic Green Tea...',
       required: true
     },
     {
       id: 'product_price',
-      question: 'What\'s the price of this product?',
+      question: '💰 What\'s the price?',
       type: 'number',
-      placeholder: 'Enter price in USD',
+      placeholder: '29.99',
       required: true
     },
     {
       id: 'product_brand',
-      question: 'Who makes this product?',
+      question: '🏢 Who makes it?',
       type: 'text',
-      placeholder: 'Brand or manufacturer name',
+      placeholder: 'Brand or company name (e.g., Apple, L\'Oréal, Teatopia)',
       required: true
     },
     {
+      id: 'product_category',
+      question: '📦 What category?',
+      type: 'select',
+      options: [
+        'Electronics & Gadgets',
+        'Beauty & Skincare',
+        'Food & Beverages',
+        'Health & Wellness',
+        'Clothing & Fashion',
+        'Home & Kitchen',
+        'Sports & Fitness',
+        'Books & Media',
+        'Automotive',
+        'Toys & Games',
+        'Other'
+      ],
+      required: false
+    },
+    {
       id: 'product_description',
-      question: 'Can you describe this product?',
+      question: '📝 Anything else we should know? (Optional)',
       type: 'textarea',
-      placeholder: 'Tell us about the product features, benefits, and any other relevant details...',
+      placeholder: 'Any additional details like features, benefits, or concerns...',
       required: false
     },
   ];
