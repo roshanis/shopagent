@@ -1,6 +1,6 @@
-# Agentic Shop Lab - Complete Web Application
+# Agentic Shop Lab - AI-Powered Product Evaluation
 
-A modern, professional web application for AI-powered product evaluation using a multi-agent framework. This application provides a comprehensive solution for evaluating products across multiple dimensions using specialized AI agents.
+**Agentic Shop Lab** is an intelligent product evaluation platform that uses four specialized AI agents to comprehensively analyze products across multiple dimensions. The application employs GPT-5, web search capabilities, and ingredient databases to evaluate cost-effectiveness, supplier trustworthiness, environmental sustainability, and ingredient safety. Users simply answer conversational questions about their product, and within minutes receive detailed scores, insights, and recommendations from each AI agent working in parallel. Built with React, FastAPI, and OpenAI's latest models, the platform provides real-time progress tracking and professional visualizations of the analysis results.
 
 ## 🌟 Features
 
@@ -59,13 +59,34 @@ Before you begin, make sure you have:
 - ✅ **Node.js 18+** with npm (`node --version`)
 - ✅ **OpenAI API Key** ([Get one here](https://platform.openai.com/api-keys))
 
-## 🚀 Quick Start (5 Minutes)
+## 🚀 Deployment (Recommended)
+
+### ⭐ Deploy to Render (Easiest - 5 Minutes)
+
+**Best for production deployment with free tier:**
+
+1. **Go to [render.com](https://render.com)** and sign up with GitHub
+2. Click **"New +"** → **"Blueprint"**
+3. Connect repository: `roshanis/shopagent`
+4. Render automatically deploys both services from `render.yaml`
+5. **Add environment variables:**
+   - Backend: `OPENAI_API_KEY`, `TAVILY_API_KEY` (optional)
+   - Frontend: `VITE_API_URL` (your backend URL)
+6. **Done!** Your app is live at `https://your-app.onrender.com`
+
+**📖 Full deployment guide:** See [DEPLOYMENT_GUIDES.md](./DEPLOYMENT_GUIDES.md)
+
+**Alternative platforms:** Vercel + Railway, Railway (both services) - see deployment guide.
+
+---
+
+## 💻 Local Development (5 Minutes)
 
 ### Step 1: Clone Repository
 
 ```bash
-git clone <repository-url>
-cd shopagent-1
+git clone https://github.com/roshanis/shopagent.git
+cd shopagent
 ```
 
 ### Step 2: Create .env File and Add Your OpenAI API Key
@@ -137,67 +158,37 @@ Open your web browser and visit:
 
 **🌐 http://localhost:3000**
 
----
 
-## 🚀 Replit Deployment (Free)
+## 🎉 Using the Application
 
-### Step 1: Create Replit Account
-1. Go to [replit.com](https://replit.com)
-2. Sign up for a free account
-3. Create a new Replit project
+### Conversational Product Evaluation
 
-### Step 2: Upload Project Files
-1. **Upload the entire project folder** to your Replit workspace
-2. **Ensure all files are uploaded** including:
-   - `frontend/` folder with React app
-   - `backend/` folder with FastAPI server
-   - `src/` folder with AI agents
-   - `run.sh` script for deployment
+The app uses a friendly conversational interface to gather product information:
 
-### Step 3: Configure Environment Variables
-1. **Click the lock icon** (Secrets) in your Replit project
-2. **Add the following secret:**
-   ```
-   OPENAI_API_KEY=your-actual-openai-api-key
-   ```
-3. **Optional - Add Tavily for enhanced search:**
-   ```
-   TAVILY_API_KEY=your-tavily-api-key
-   ```
+1. **Start Evaluation** - Click "Start Product Evaluation" on homepage
+2. **Answer Questions** - The app asks for:
+   - Product name
+   - Price
+   - Supplier name
+   - Category
+   - Additional details (optional)
+3. **Start Analysis** - Click "Start Analysis" when ready
+4. **Watch AI Agents Work** - Real-time progress as 4 agents analyze:
+   - 💰 **Cost Analysis Agent** - Pricing and value proposition
+   - 🤝 **Supplier Trust Agent** - Reliability and reputation
+   - 🌱 **Sustainability Agent** - Environmental impact
+   - 🔬 **Ingredient Safety Agent** - Safety and health (uses OpenFoodFacts)
+5. **View Results** - Comprehensive dashboard with scores and insights
 
-### Step 4: Run the Application
-1. **Open the terminal** in your Replit project
-2. **Run the deployment script:**
-   ```bash
-   ./run.sh
-   ```
+### Example Product to Try
 
-### Step 5: Access Your Application
-1. **Replit will provide a URL** like `https://your-project.replit.dev`
-2. **Open that URL** in your browser
-3. **The application will be running** with both frontend and backend
-
-### 🎯 Replit Features Used
-
-- **Multi-language Support:** Python (FastAPI) + Node.js (React)
-- **Background Processes:** Backend runs alongside frontend
-- **Environment Variables:** Secure API key storage
-- **File System:** All project files accessible
-- **Web Server:** Automatic HTTP serving
-
----
-
-## 🎉 Try It Out!
-
-1. Click **"Start Product Evaluation"** on the homepage
-2. Answer the conversational questions about your product
-3. Click **"Start Analysis"** to begin
-4. Watch the 4 AI agents analyze the product in real-time:
-   - 💰 **Cost Analysis Agent** - Evaluating pricing and value
-   - 🤝 **Supplier Trust Agent** - Assessing reliability
-   - 🌱 **Sustainability Agent** - Analyzing environmental impact
-   - 🔬 **Ingredient Safety Agent** - Checking safety and health
-5. Review the comprehensive results dashboard
+```
+Product Name: Organic Green Tea
+Price: $15.99
+Supplier: Teatopia
+Category: Beverages
+Description: Premium organic green tea leaves
+```
 
 ## 🔐 Environment Setup Details
 
