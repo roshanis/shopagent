@@ -1,0 +1,11 @@
+# Replit ignore file
+node_modules/
+frontend/dist/
+frontend/node_modules/
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+.DS_Store
+
