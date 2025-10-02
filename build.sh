@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Replit Build Script - POSIX compliant
+# Replit Build Script - Uses virtual environment for Python
 # This script handles the build phase for Replit deployments
 
 set -e  # Exit on error
@@ -13,9 +13,16 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 echo "Build directory: $SCRIPT_DIR"
 echo ""
 
-# Install Python dependencies
+# Create and activate virtual environment for Python
+echo "Creating Python virtual environment..."
+cd "$SCRIPT_DIR"
+python3 -m venv .venv
+. .venv/bin/activate
+
+# Install Python dependencies in virtual environment
 echo "Installing Python dependencies..."
-python3 -m pip install -r "$SCRIPT_DIR/backend/requirements.txt"
+pip install --upgrade pip
+pip install -r "$SCRIPT_DIR/backend/requirements.txt"
 echo "Python dependencies installed"
 echo ""
 
@@ -23,7 +30,6 @@ echo ""
 echo "Installing Node.js dependencies..."
 cd "$SCRIPT_DIR/frontend"
 echo "Changed to: $SCRIPT_DIR/frontend"
-ls -la package.json
 npm install
 echo "Node.js dependencies installed"
 echo ""
