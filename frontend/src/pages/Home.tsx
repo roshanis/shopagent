@@ -66,13 +66,6 @@ export const Home: React.FC = () => {
       placeholder: 'Tell us about the product features, benefits, and any other relevant details...',
       required: false
     },
-    {
-      id: 'product_ingredients',
-      question: 'Do you know the ingredients or materials? (Optional)',
-      type: 'textarea',
-      placeholder: 'List ingredients, materials, or components if known...',
-      required: false
-    }
   ];
 
   const handleInputChange = (stepId: string, value: string | number) => {
@@ -142,7 +135,6 @@ export const Home: React.FC = () => {
         brand: conversationData.product_brand || '',
         category: conversationData.product_category || '',
         description: conversationData.product_description || '',
-        ingredients: conversationData.product_ingredients || '',
       };
 
       // Start evaluation using API service
