@@ -4,8 +4,8 @@ run = "bash run.sh"
 channel = "stable-23_11"
 
 [deployment]
-build = ["bash", "build.sh"]
-run = ["bash", "start.sh"]
+build = ["sh", "build.sh"]
+run = ["sh", "start.sh"]
 
 [env]
 PYTHONPATH = "./backend"
