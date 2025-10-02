@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Replit Start Script - Uses virtual environment for Python
+# Replit Start Script - Simple approach
 # This script handles the run phase for Replit deployments
 
 set -e  # Exit on error
@@ -22,11 +22,6 @@ fi
 
 echo "Environment variables validated"
 echo ""
-
-# Activate virtual environment
-echo "Activating virtual environment..."
-cd "$SCRIPT_DIR"
-. .venv/bin/activate
 
 # Start backend
 echo "Starting backend server..."
